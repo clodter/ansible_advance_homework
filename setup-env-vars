@@ -1,4 +1,4 @@
-export TOWER_GUID='577d'
+export TOWER_GUID='d3ca'
 export OSP_GUID='9fde'
 export SSH_KEY='/root/.ssh/clodter-opentlc.pem'
 export OPENTLC_LOGIN='clodter-redhat.com'

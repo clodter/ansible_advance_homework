@@ -8,7 +8,7 @@ user_name: admin
 password: r3dh4t1!
 ssh_cred_name: "Connect_to_workstation"
 user_cred_name: "cloud-user"
-user_cred_path: "/root/.ssh/openstack.pub"
+user_cred_path: "/root/.ssh/openstack.pem"
 static_inventory_name: scm_inventory
 instance_group_name: osp
 workflow_template_name: cicd_workflow
@@ -19,16 +19,19 @@ host_name: workstation-{{osp_GUID}}.rhpds.opentlc.com
 job_template_name_3tier_app: "3tier app deployment on QA Env"
 app_deploy_playbook: site-3tier-app.yml
 vault_name: yum_repo_vault
+vault_password: ansible
 job_template_name_osp_instances_delete: "Nuke QA Env"
 osp_instances_delete_playbook: site-osp-delete.yml
 job_template_smoke_osp: "Smoke test QA Env"
 osp_smoke_playbook: site-smoke-osp.yml
 job_template_aws_provision: "Provision Prod Env"
 aws_provision_playbook: aws_provision.yml
+aws_jq_extra_vars: "/tmp/aws_jq_vars.yml"
 ec2_dynamic_inventory: "Three tier inventory"
 aws_ssh_playbook: aws_creds.yml
 opentlc_cred_name: "Opentlc key"
 job_template_aws_ssh_keys: "SSH keys three tier app"
+aws_ssh_extra_vars: "/tmp/tower_info.yml"
 ec2_inventory_source: "Three tier inventory source"
 aws_region_name: "{{ REGION_NAME }}"
 tag_filters: "tag:instance_filter=three-tier-app-{{ EMAIL }}"
